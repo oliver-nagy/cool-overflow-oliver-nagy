@@ -1,11 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-function QuestionsTitle(props) {
+function handleAskButton(setIsAskingQuestion) {
+    return () => setIsAskingQuestion(prevState => !prevState);
+}
+
+function QuestionsTitle({questionLength}) {
+    const [isAskingQuestion, setIsAskingQuestion] = useState(false);
+
     return (
         <div className="page-title">
             <h3>All questions</h3>
-            <p>325 questions</p>
-            <button>Ask question</button>
+            <p>{questionLength} questions</p>
+            <button onClick={handleAskButton(setIsAskingQuestion)}>Ask question</button>
+            {isAskingQuestion ? <h1>IGEN</h1> : null}
         </div>
     );
 }

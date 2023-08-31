@@ -5,8 +5,7 @@ import QuestionsTitle from "../components/QuestionsTitle";
 const fetchQuestions = async () => {
     try {
         const response = await fetch("questions/");
-        const data = await response.json();
-        return data;
+        return await response.json();
     } catch (error) {
         console.log("Error fetching questions", error);
         throw error;
@@ -20,12 +19,12 @@ function Questions(props) {
         fetchQuestions().then(questions => setQuestions(questions))
     }, []);
 
-    if (questions === null) <><h1>Loading</h1></>
+    if (questions === null) <><h1>Loading..</h1></>
 
     if (questions != null)
     return (
         <div className="sub-page-container">
-            <QuestionsTitle/>
+            <QuestionsTitle questionLength={questions.length}/>
             <QuestionList questions={questions}/>
         </div>
     );
