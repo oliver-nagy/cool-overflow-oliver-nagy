@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import QuestionList from "../components/QuestionList";
 import QuestionsTitle from "../components/QuestionsTitle";
+import {json} from "react-router-dom";
 
 const fetchQuestions = async () => {
     try {
@@ -10,7 +11,30 @@ const fetchQuestions = async () => {
         console.log("Error fetching questions", error);
         throw error;
     }
-};
+}
+
+const vote = async (questionId,voteValue) => {
+    try {
+        const response = await
+            fetch(`questions/${questionId}/${voteValue}`, {
+                method: 'PATCH',
+                body: JSON.stringify({
+                    id:questionId,
+                    number: voteValue,
+                }),
+                headers: {
+                    'Content-type': 'application/json'
+                },
+            })
+                .then((response) => response.json())
+                .then((json) => console.log(json));
+    } catch (e) {
+        console.log(e);
+    }
+}
+const handleVote = (amount,questionId) => {
+vote(amount,questionId);
+}
 
 const createQuestion = (question) => {
     return fetch("questions/", {
@@ -45,8 +69,8 @@ function Questions(props) {
             <div className="sub-page-container">
                 <QuestionsTitle questionLength={questions.length}
                 onSave={handleCreateQuestion} />
-                <QuestionList questions={questions}/>
                 
+                <QuestionList questions={questions} handleVote={handleVote}/>
             </div>
         );
 
