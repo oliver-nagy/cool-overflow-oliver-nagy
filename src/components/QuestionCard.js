@@ -12,9 +12,9 @@ function QuestionCard({question, handleVote}) {
                 <button onClick={() => handleVote(question.id, -1)}>Down vote</button>
             </div>
             <div className="question">
-                <h4 className="question-content-title">
+                <p className="question-content-title">
                     <Link className="question-link" to={`${question.id}`}>{question.title}</Link>
-                </h4>
+                </p>
                 <p className="question-content">
                     {question.description}
                 </p>

@@ -54,12 +54,8 @@ function Questions(props) {
     }, []);
 
     const handleCreateQuestion = (question) => {
-
-
         createQuestion(question)
-            .then(() => {
-
-            })
+            .then(() => {})
     };
 
     if (questions === null) <><h1>Loading..</h1></>

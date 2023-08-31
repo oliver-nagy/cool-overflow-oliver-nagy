@@ -11,6 +11,7 @@ function QuestionsTitle({ questionLength, onSave }) {
 
     const onSubmit = (e) => {
         e.preventDefault();
+        setIsAskingQuestion(prevState => !prevState);
         onSave({
             title,
             description,
@@ -21,35 +22,42 @@ function QuestionsTitle({ questionLength, onSave }) {
 
     return (
         <div className="page-title">
-            <h3>All questions</h3>
-            <p>{questionLength} questions</p>
-            <button onClick={handleAskButton(setIsAskingQuestion)}>Ask question</button>
-            {isAskingQuestion ?
+            <div className="questions-page-title-container">
+                <div className="questions-title">
+                    <p>All questions</p>
+                </div>
+                <div className="questions-stats">
+                    <p>{questionLength} questions</p>
+                    <button onClick={handleAskButton(setIsAskingQuestion)}>Ask question</button>
+                </div>
+            </div>
 
-                <form className='QuestionForm' onSubmit={onSubmit}>
-                    <div>
-                        <label htmlFor="title">Title:</label>
+            {isAskingQuestion ?
+                <form className='question-form' onSubmit={onSubmit}>
+                    <div className="question-form-element">
+                        <label style={{fontSize: '18px', fontWeight: "bold"}} className="question-form-title" htmlFor="title">Title</label>
+                        <p style={{fontSize: '12px'}}>Be specific and imagine you’re asking a question to another person.</p>
                         <input
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                             name="title"
                             id="title"
+                            placeholder="e.g. How is it possible to pass your P.A. if Adam Metal is your assigned Mentor?"
                         />
                     </div>
-                    <div>
-                        <label htmlFor="description">Description:</label>
-                        <input
+                    <div className="question-form-element">
+                        <label style={{fontSize: '18px', fontWeight: "bold"}} className="question-form-description" htmlFor="description">What are the details of your question?</label>
+                        <p style={{fontSize: '12px'}}>Introduce the problem and expand on what you put in the title. Minimum 20 characters.</p>
+                        <textarea
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                             name="description"
                             id="tidescriptiontle"
                         />
+                        <div className="new-question-button button">
+                            <button type="submit">Ask question</button>
+                        </div>
                     </div>
-                    <div className="button">
-                        <button type="submit" >Create</button>
-                    </div>
-
-
                 </form>
                 :
                 null}
