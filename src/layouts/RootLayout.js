@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, NavLink, Outlet} from "react-router-dom";
 
-function RootLayout(props) {
+function RootLayout() {
     return (
         <div className="root-layout">
             <header>
