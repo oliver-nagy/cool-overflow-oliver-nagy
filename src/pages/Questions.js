@@ -4,7 +4,7 @@ import QuestionsTitle from "../components/QuestionsTitle";
 
 const fetchQuestions = async () => {
     try {
-        const response = await fetch("/questions");
+        const response = await fetch("questions/");
         const data = await response.json();
         return data;
     } catch (error) {
@@ -14,20 +14,22 @@ const fetchQuestions = async () => {
 };
 
 function Questions(props) {
-    const [questions, setQuestions] = useState();
+    const [questions, setQuestions] = useState(null);
 
     useEffect(() => {
-        setQuestions(fetchQuestions());
+        fetchQuestions().then(questions => setQuestions(questions))
     }, []);
 
+    if (questions === null) <><h1>Loading</h1></>
+
+    if (questions != null)
     return (
         <div className="sub-page-container">
-            {console.log(questions)}
             <QuestionsTitle/>
-            <QuestionList/>
-
+            <QuestionList questions={questions}/>
         </div>
     );
+
 }
 
 export default Questions;
