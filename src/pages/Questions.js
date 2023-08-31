@@ -13,13 +13,13 @@ const fetchQuestions = async () => {
     }
 }
 
-const vote = async (questionId,voteValue) => {
+const vote = async (questionId, voteValue) => {
     try {
         const response = await
-            fetch(`questions/${questionId}/${voteValue}`, {
+            fetch("questions/vote", {
                 method: 'PATCH',
                 body: JSON.stringify({
-                    id:questionId,
+                    id: questionId,
                     number: voteValue,
                 }),
                 headers: {
@@ -32,8 +32,8 @@ const vote = async (questionId,voteValue) => {
         console.log(e);
     }
 }
-const handleVote = (amount,questionId) => {
-vote(amount,questionId);
+const handleVote = (amount, questionId) => {
+    vote(amount, questionId);
 }
 
 function Questions(props) {
