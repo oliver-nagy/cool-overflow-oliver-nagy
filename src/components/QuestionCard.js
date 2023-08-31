@@ -5,8 +5,7 @@ function QuestionCard(props) {
         <div className="question-card">
             <div className="question-stats">
                 <p>0 votes</p>
-                <p>0 votes</p>
-                <p>0 votes</p>
+                <p>0 answers</p>
             </div>
             <div className="question">
                 <h4 className="question-content-title">Lorem title of question</h4>
