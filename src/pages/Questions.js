@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import QuestionList from "../components/QuestionList";
 import QuestionsTitle from "../components/QuestionsTitle";
 import {json} from "react-router-dom";
@@ -36,6 +36,16 @@ const handleVote = (amount, questionId) => {
     vote(amount, questionId);
 }
 
+const createQuestion = (question) => {
+    return fetch("questions/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(question),
+    }).then((res) => res.json());
+};
+
 function Questions(props) {
     const [questions, setQuestions] = useState(null);
 
@@ -43,12 +53,23 @@ function Questions(props) {
         fetchQuestions().then(questions => setQuestions(questions))
     }, []);
 
+    const handleCreateQuestion = (question) => {
+
+
+        createQuestion(question)
+            .then(() => {
+
+            })
+    };
+
     if (questions === null) <><h1>Loading..</h1></>
 
     if (questions != null)
         return (
             <div className="sub-page-container">
-                <QuestionsTitle questionLength={questions.length}/>
+                <QuestionsTitle questionLength={questions.length}
+                onSave={handleCreateQuestion} />
+                
                 <QuestionList questions={questions} handleVote={handleVote}/>
             </div>
         );

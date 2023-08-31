@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 function QuestionCard({question, handleVote}) {
 
@@ -11,7 +12,9 @@ function QuestionCard({question, handleVote}) {
                 <button onClick={() => handleVote(question.id, -1)}>Down vote</button>
             </div>
             <div className="question">
-                <h4 className="question-content-title">{question.title}</h4>
+                <h4 className="question-content-title">
+                    <Link className="question-link" to={`${question.id}`}>{question.title}</Link>
+                </h4>
                 <p className="question-content">
                     {question.description}
                 </p>
