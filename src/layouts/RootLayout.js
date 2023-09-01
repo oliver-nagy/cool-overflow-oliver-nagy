@@ -7,7 +7,8 @@ function RootLayout() {
             <header>
                 <nav className="nav-bar">
                     <div className="top-bar-logo">
-                        <Link to="/" className="title"><h1>Cooloverflow</h1></Link>
+                        <img src="/cooloverflow-logo.png" alt="logo"></img>
+                        <Link to="/" className="title"><p style={{fontSize:'18px'}}>cool<span style={{fontWeight:'bold'}}>overflow</span></p></Link>
                     </div>
                     <div className="navigation">
                         <NavLink to="/">Home</NavLink>

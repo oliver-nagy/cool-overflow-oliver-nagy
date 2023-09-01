@@ -175,9 +175,9 @@ a.active{
   border: solid 1px grey;
   border-radius: 5px;
   margin: 30px 0;
-  box-shadow: 0px 0px 7px -1px rgba(0,0,0,0.75);
-  -webkit-box-shadow: 0px 0px 7px -1px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 7px -1px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 6px -1px rgba(0,0,0,0.35);
+  -webkit-box-shadow: 0px 0px 6px -1px rgba(0,0,0,0.35);
+  -moz-box-shadow: 0px 0px 6px -1px rgba(0,0,0,0.35);
 }
 
 .question-form-element input{
@@ -185,6 +185,24 @@ a.active{
   border: solid 2px var(--border-line-color);
   border-radius: 10px;
   padding-left: 15px;
+}
+
+.question-form-element textarea{
+  height: 30px;
+  border: solid 2px var(--border-line-color);
+  border-radius: 10px;
+  padding-left: 15px;
+}
+
+.question-form-element textarea:focus{
+  height: 30px;
+  border: solid 2px var(--border-line-color);
+  border-radius: 10px;
+  padding-left: 15px;
+  outline: none;
+  box-shadow: 0px 0px 3px 2px var(--primary-color);
+  -webkit-box-shadow: 0px 0px 3px 2px var(--primary-color);
+  -moz-box-shadow: 0px 0px 3px 2px var(--primary-color);
 }
 
 #tidescriptiontle{
@@ -242,9 +260,8 @@ a.active{
 .question-content{
   font-size: 14px;
   margin: 0 10px 20px 0 !important;
-  max-height: 80px;
-  overflow: hidden; /* keeps the element from overflowing its parent */
-  text-overflow: fade; /* enables ellipsis */
+  max-height: 70px;
+  overflow: hidden;
 }
 
 .question > * {
@@ -325,9 +342,21 @@ a.active{
   height: 50px;
   border-radius: 40px;
   border: solid 1px #dadada;
+  font-size: 15px;
 }
 
 .vote-button:hover{
   cursor: pointer;
   background: #dadada;
+}
+
+.top-bar-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.top-bar-logo img{
+  width: auto;
+  height: 30px;
 }

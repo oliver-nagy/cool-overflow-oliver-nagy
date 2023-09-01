@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import Answers from "../components/Answers";
+import {BiSolidDownArrow, BiSolidUpArrow} from "react-icons/bi";
+
 
 const fetchQuestion = async (questionId) => {
     try {
@@ -44,13 +46,14 @@ function Question() {
             <div className="question-container">
                 <div className="question-title-container">
                     <p style={{fontSize: '25px'}}>{question.title}</p>
-                    <p style={{fontSize: '14px'}}><span style={{color: 'grey'}}>Asked</span> {formatDate(question.created)}</p>
+                    <p style={{fontSize: '14px'}}><span
+                        style={{color: 'grey'}}>Asked</span> {formatDate(question.created)}</p>
                 </div>
                 <div className="question-description-container">
                     <div className="question-votes">
-                        <button className="vote-button">Up</button>
+                        <button className="vote-button"><BiSolidUpArrow/></button>
                         <h2 style={{margin: '5px 0'}}>{question.score}</h2>
-                        <button className="vote-button">Down</button>
+                        <button className="vote-button"><BiSolidDownArrow/></button>
                     </div>
                     <p style={{padding: '0 0'}}>{question.description}</p>
                 </div>
