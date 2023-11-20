@@ -1,4 +1,4 @@
-# Project Title: CoolOverflow - A StackOverflow-inspired Q&A Platform (FRONTEND BUILD)
+# Project Title: CoolOverflow - A StackOverflow-inspired Q&A Platform (FRONTEND)
 
 ## Overview
 
