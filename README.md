@@ -43,4 +43,3 @@ If you encounter any issues or have suggestions for improvement, please open an 
 ## Acknowledgments
 
 - The project was inspired by the functionality of StackOverflow.
-- 
