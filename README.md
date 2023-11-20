@@ -1,4 +1,4 @@
-# Project Title: StackLite - A StackOverflow-inspired Q&A Platform
+# Project Title: CoolOverflow - A StackOverflow-inspired Q&A Platform (FRONTEND BUILD)
 
 ## Overview
 
